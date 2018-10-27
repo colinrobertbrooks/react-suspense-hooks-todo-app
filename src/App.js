@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { Router } from '@reach/router';
+import { Container } from 'reactstrap';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import Loading from './components/Loading';
+
+const TodoListPage = React.lazy(() =>
+  import(/* webpackChunkName: 'TodoListPage' */ './components/TodoListPage')
+);
+const TodoDetailsPage = React.lazy(() =>
+  import(/* webpackChunkName: 'TodoDetailsPage' */ './components/TodoDetailsPage')
+);
+
+function App() {
+  return (
+    <Suspense maxDuration={500} fallback={<Loading />}>
+      <Container>
+        <Router>
+          <TodoListPage path="/" />
+          <TodoDetailsPage path="details/:id" />
+        </Router>
+      </Container>
+    </Suspense>
+  );
 }
 
 export default App;
