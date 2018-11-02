@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "e6a2c1228c43a5c0b14a",
-    "url": "/react-suspense-hooks-todo-app/static/js/runtime~main.e6a2c122.js"
+    "revision": "cf9cc8f936b71e75a53c",
+    "url": "/react-suspense-hooks-todo-app/static/js/runtime~main.cf9cc8f9.js"
   },
   {
     "revision": "dd2c5261bd2a8222bce5",
     "url": "/react-suspense-hooks-todo-app/static/js/main.dd2c5261.chunk.js"
   },
   {
-    "revision": "5fdcf32b48816653a9f9",
-    "url": "/react-suspense-hooks-todo-app/static/js/TodoListPage.5fdcf32b.chunk.js"
+    "revision": "9fd1880f4ab4766bc47a",
+    "url": "/react-suspense-hooks-todo-app/static/js/TodoListPage.9fd1880f.chunk.js"
   },
   {
-    "revision": "bd50523cb9ae8d3f61ad",
-    "url": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.bd50523c.chunk.js"
+    "revision": "9e9498c292b4dc62ba3f",
+    "url": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.9e9498c2.chunk.js"
   },
   {
     "revision": "0de34ba0118bd8b7c779",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/react-suspense-hooks-todo-app/static/css/4.d7f779c2.chunk.css"
   },
   {
-    "revision": "075c77967ed9df87aae5bc16ed5cfd09",
+    "revision": "dbca37fcd900cf0264e0e51586447f23",
     "url": "/react-suspense-hooks-todo-app/index.html"
   }
 ];
