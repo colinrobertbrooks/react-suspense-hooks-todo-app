@@ -16,8 +16,8 @@ function App() {
     <Suspense maxDuration={500} fallback={<Loading />}>
       <Container>
         <Router>
-          <TodoListPage path="/" />
-          <TodoDetailsPage path="details/:id" />
+          <TodoListPage path={`${process.env.PUBLIC_URL}/`} />
+          <TodoDetailsPage path={`${process.env.PUBLIC_URL}/details/:id`} />
         </Router>
       </Container>
     </Suspense>

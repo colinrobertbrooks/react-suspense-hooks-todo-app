@@ -9,7 +9,7 @@ const TodoListGroupItem = ({ id, text, completed }) => (
     <h4>
       {text} <TodoCompletedBadge completed={completed} />
     </h4>
-    <Link to={`details/${id}`}>Details</Link>
+    <Link to={`${process.env.PUBLIC_URL}/details/${id}`}>Details</Link>
   </ListGroupItem>
 );
 

@@ -35,7 +35,7 @@ const TodoDetails = ({ id }) => {
           </p>
         </Col>
         <Col xs={12}>
-          <Link to="/">Todos</Link>
+          <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
         </Col>
       </Row>
     );
@@ -75,7 +75,7 @@ const TodoDetails = ({ id }) => {
         </Table>
       </Col>
       <Col xs={12}>
-        <Link to="/">Todos</Link>
+        <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
       </Col>
     </Row>
   );
