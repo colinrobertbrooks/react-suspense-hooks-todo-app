@@ -14,6 +14,10 @@ Playing with new toys. :sunglasses:
 
 `$ yarn build`
 
+## References
+
+- [Cache API](https://github.com/facebook/react/pull/13337#issuecomment-425974864)
+
 ## TODO
 
 - Create
