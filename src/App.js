@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 import { Container } from 'reactstrap';
 
-import Loading from './components/Loading';
+import IsLoading from './components/IsLoading';
 
 const TodoListPage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoListPage' */ './components/TodoListPage')
@@ -13,7 +13,7 @@ const TodoDetailsPage = React.lazy(() =>
 
 function App() {
   return (
-    <Suspense maxDuration={500} fallback={<Loading />}>
+    <Suspense maxDuration={500} fallback={<IsLoading />}>
       <Container>
         <Router>
           <TodoListPage path={`${process.env.PUBLIC_URL}/`} />

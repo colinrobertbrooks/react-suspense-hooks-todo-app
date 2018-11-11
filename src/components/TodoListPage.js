@@ -1,9 +1,13 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-import Loading from './Loading';
+import api from '../api';
+import withLoading from './withLoading';
 import TodoAddButton from './TodoAddButton';
 import TodoList from './TodoList';
+
+// TODO: move this
+const TodoListContainer = withLoading(TodoList);
 
 const TodoListPage = () => (
   <Row className="text-center">
@@ -13,12 +17,7 @@ const TodoListPage = () => (
       <hr />
     </Col>
     <Col xs={12}>
-      <Suspense
-        maxDuration={1000}
-        fallback={<Loading resourceName="todo list" />}
-      >
-        <TodoList />
-      </Suspense>
+      <TodoListContainer fetchData={api.todos.list} resourceName="todos" />
     </Col>
   </Row>
 );

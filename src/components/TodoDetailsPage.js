@@ -1,15 +1,18 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
-import Loading from './Loading';
+import api from '../api';
+import withLoading from './withLoading';
 import TodoDetails from './TodoDetails';
 
+// TODO: move this
+const TodoDetailsContainer = withLoading(TodoDetails);
+
 const TodoDetailsPage = ({ id }) => (
-  <Suspense
-    maxDuration={1000}
-    fallback={<Loading resourceName="todo details" />}
-  >
-    <TodoDetails id={id} />
-  </Suspense>
+  <TodoDetailsContainer
+    fetchData={() => api.todos.get(id)}
+    resourceName="todo"
+    id={id}
+  />
 );
 
 export default TodoDetailsPage;

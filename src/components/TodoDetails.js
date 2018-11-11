@@ -1,13 +1,9 @@
 import React from 'react';
-import { unstable_createResource as createResource } from 'react-cache';
 import { Link } from '@reach/router';
 import { Row, Col, Table } from 'reactstrap';
 
-import api from '../api';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import TodoCompletedBadge from './TodoCompletedBadge';
-
-const TodoResource = createResource(api.todos.get);
 
 const formatDate = value => {
   const dt = new Date(value);
@@ -15,9 +11,7 @@ const formatDate = value => {
   return dt.toLocaleString();
 };
 
-const TodoDetails = ({ id }) => {
-  const todo = TodoResource.read(id);
-
+const TodoDetails = ({ data: todo, id }) => {
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
 
   if (!todo) {
