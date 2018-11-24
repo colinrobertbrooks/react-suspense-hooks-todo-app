@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import api from '../api';
-import withLoading from './withLoading';
+import TodoContext from './TodoContext';
 import TodoDetails from './TodoDetails';
 
-// TODO: move this
-const TodoDetailsContainer = withLoading(TodoDetails);
+const TodoDetailsPage = ({ id }) => {
+  const { getTodoById } = useContext(TodoContext);
+  const todo = getTodoById(id);
 
-const TodoDetailsPage = ({ id }) => (
-  <TodoDetailsContainer
-    fetchData={() => api.todos.get(id)}
-    resourceName="todo"
-    id={id}
-  />
-);
-
+  return <TodoDetails todo={todo} id={id} />;
+};
 export default TodoDetailsPage;

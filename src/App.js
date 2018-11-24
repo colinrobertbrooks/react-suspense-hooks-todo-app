@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 import { Container } from 'reactstrap';
 
+import { TodoProvider } from './components/TodoContext';
 import IsLoading from './components/IsLoading';
 
 const TodoListPage = React.lazy(() =>
@@ -14,12 +15,14 @@ const TodoDetailsPage = React.lazy(() =>
 function App() {
   return (
     <Suspense maxDuration={500} fallback={<IsLoading />}>
-      <Container>
-        <Router>
-          <TodoListPage path={`${process.env.PUBLIC_URL}/`} />
-          <TodoDetailsPage path={`${process.env.PUBLIC_URL}/details/:id`} />
-        </Router>
-      </Container>
+      <TodoProvider>
+        <Container>
+          <Router>
+            <TodoListPage path={`${process.env.PUBLIC_URL}/`} />
+            <TodoDetailsPage path={`${process.env.PUBLIC_URL}/details/:id`} />
+          </Router>
+        </Container>
+      </TodoProvider>
     </Suspense>
   );
 }

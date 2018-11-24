@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row, Col } from 'reactstrap';
 
-import api from '../api';
-import withLoading from './withLoading';
+import TodoContext from './TodoContext';
 import TodoAddButton from './TodoAddButton';
+import IsLoading from './IsLoading';
+import HasError from './HasError';
 import TodoList from './TodoList';
 
-// TODO: move this
-const TodoListContainer = withLoading(TodoList);
+const TodoListPage = () => {
+  const { isLoading, error, todos } = useContext(TodoContext);
 
-const TodoListPage = () => (
-  <Row className="text-center">
-    <Col xs={12}>
-      <h2>Todos</h2>
-      <TodoAddButton />
-      <hr />
-    </Col>
-    <Col xs={12}>
-      <TodoListContainer fetchData={api.todos.list} resourceName="todos" />
-    </Col>
-  </Row>
-);
+  return (
+    <Row className="text-center">
+      <Col xs={12}>
+        <h2>Todos</h2>
+        <TodoAddButton />
+        <hr />
+      </Col>
+      <Col xs={12}>
+        {(() => {
+          if (isLoading) {
+            return <IsLoading resourceName="todos" />;
+          }
+
+          if (error) {
+            return <HasError resourceName="todos" />;
+          }
+
+          return <TodoList todos={todos} />;
+        })()}
+      </Col>
+    </Row>
+  );
+};
 
 export default TodoListPage;

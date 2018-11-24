@@ -4,15 +4,16 @@ import { Row, Col } from 'reactstrap';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import TodoListGroup from './TodoListGroup';
 
-const TodoList = ({ data: todos }) => {
+const TodoList = ({ todos }) => {
   useDocumentTitle('Todos');
 
   return (
     <Row>
       <Col xs={12}>
-        <TodoListGroup todos={todos} />
+        {todos.length ? <TodoListGroup todos={todos} /> : <p>No todos.</p>}
       </Col>
     </Row>
   );
 };
+
 export default TodoList;

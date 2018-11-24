@@ -1,28 +1,75 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 
-// jared's context pattern
-// https://github.com/jaredpalmer/react-conf-2018/blob/master/full-suspense/src/components/PlayerProvider.js
+import api from '../api';
 
-// my context pattern
-// https://github.com/colinrcummings/testing-javascript-applications-demo/blob/master/app/assets/javascripts/client/manage_users/context/index.js
+const initialState = {
+  isLoading: true,
+  error: null,
+  todos: null
+};
 
-// ryan's useReducer example
-// https://github.com/ryanflorence/react-conf-2018/blob/476ddf2946fc15010783c8ad1b4770d246d8bdf6/carousel/src/App.final.js#L112
+const FETCH_TODO_LIST_SUCCESS = 'FETCH_TODO_LIST_SUCCESS';
+const FETCH_TODO_LIST_ERROR = 'FETCH_TODO_LIST_ERROR';
 
-// TODO: store, reducer, actions
+const TodoContext = React.createContext(null);
 
-export const TodoContext = React.createContext(null);
+const TodoProvider = ({ children }) => {
+  const [store, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case FETCH_TODO_LIST_SUCCESS:
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          todos: action.payload.todos
+        };
 
-class TodoProvider extends React.Component {
-  render() {
-    return (
-      <TodoContext.Provider value={this.state}>
-        {this.props.children}
-      </TodoContext.Provider>
-    );
-  }
-}
+      case FETCH_TODO_LIST_ERROR:
+        return {
+          ...state,
+          isLoading: false,
+          error: action.payload.error,
+          todos: null
+        };
+
+      default:
+        return state;
+    }
+  }, initialState);
+
+  const fetchTodoList = async () => {
+    try {
+      const todos = await api.todos.list();
+
+      dispatch({ type: FETCH_TODO_LIST_SUCCESS, payload: { todos } });
+    } catch (error) {
+      dispatch({ type: FETCH_TODO_LIST_ERROR, payload: { error } });
+    }
+  };
+
+  useEffect(() => {
+    fetchTodoList();
+  }, []);
+
+  const getTodoById = id => {
+    const { todos } = store;
+
+    if (todos) {
+      return todos.find(todo => todo.id === id);
+    }
+
+    return null;
+  };
+
+  return (
+    <TodoContext.Provider value={{ ...store, getTodoById }}>
+      {children}
+    </TodoContext.Provider>
+  );
+};
 
 const TodoConsumer = TodoContext.Consumer;
 
-export default { TodoProvider, TodoConsumer };
+export default TodoContext;
+
+export { TodoProvider, TodoConsumer };

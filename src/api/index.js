@@ -3,7 +3,7 @@ import { todos } from './data';
 
 /*
   if(Math.random() > 0.5) {
-    throw new Error('😢);
+    throw new Error('😢');
   }
 */
 
@@ -14,12 +14,9 @@ const api = {
 
       await delay();
 
-      return todos.map(todo => {
-        const { createdAt, createdBy, updatedAt, updatedBy, ...rest } = todo;
-
-        return rest;
-      });
-    },
+      return todos;
+    }
+    /*
     async get(id) {
       console.log(`📞 api.todos.get called for id ${id}:`);
 
@@ -27,6 +24,7 @@ const api = {
 
       return todos.find(todo => todo.id === id);
     }
+    */
   }
 };
 

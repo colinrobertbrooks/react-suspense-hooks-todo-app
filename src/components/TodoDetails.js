@@ -11,7 +11,7 @@ const formatDate = value => {
   return dt.toLocaleString();
 };
 
-const TodoDetails = ({ data: todo, id }) => {
+const TodoDetails = ({ todo, id }) => {
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
 
   if (!todo) {
