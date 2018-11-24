@@ -14,6 +14,12 @@ Playing with new toys. :sunglasses:
 
 `$ yarn build`
 
+## References
+
+- [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
+- [Hooks](https://reactjs.org/docs/hooks-reference.html)
+- [Cache API](https://github.com/facebook/react/pull/13337#issuecomment-425974864)
+
 ## TODO
 
 - Create

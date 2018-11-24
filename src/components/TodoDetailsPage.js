@@ -1,15 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { useContext } from 'react';
 
-import Loading from './Loading';
+import TodoContext from './TodoContext';
 import TodoDetails from './TodoDetails';
 
-const TodoDetailsPage = ({ id }) => (
-  <Suspense
-    maxDuration={1000}
-    fallback={<Loading resourceName="todo details" />}
-  >
-    <TodoDetails id={id} />
-  </Suspense>
-);
+const TodoDetailsPage = ({ id }) => {
+  const { getTodoById } = useContext(TodoContext);
+  const todo = getTodoById(id);
 
+  return <TodoDetails todo={todo} id={id} />;
+};
 export default TodoDetailsPage;

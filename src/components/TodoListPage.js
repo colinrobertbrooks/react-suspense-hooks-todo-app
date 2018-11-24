@@ -1,24 +1,37 @@
-import React, { Suspense } from 'react';
+import React, { useContext } from 'react';
 import { Row, Col } from 'reactstrap';
 
-import Loading from './Loading';
+import TodoContext from './TodoContext';
+import TodoAddButton from './TodoAddButton';
+import IsLoading from './IsLoading';
+import HasError from './HasError';
 import TodoList from './TodoList';
 
-const TodoListPage = () => (
-  <Row className="text-center">
-    <Col xs={12}>
-      <h2>Todos</h2>
-      <hr />
-    </Col>
-    <Col xs={12}>
-      <Suspense
-        maxDuration={1000}
-        fallback={<Loading resourceName="todo list" />}
-      >
-        <TodoList />
-      </Suspense>
-    </Col>
-  </Row>
-);
+const TodoListPage = () => {
+  const { isLoading, error, todos } = useContext(TodoContext);
+
+  return (
+    <Row className="text-center">
+      <Col xs={12}>
+        <h2>Todos</h2>
+        <TodoAddButton />
+        <hr />
+      </Col>
+      <Col xs={12}>
+        {(() => {
+          if (isLoading) {
+            return <IsLoading resourceName="todos" />;
+          }
+
+          if (error) {
+            return <HasError resourceName="todos" />;
+          }
+
+          return <TodoList todos={todos} />;
+        })()}
+      </Col>
+    </Row>
+  );
+};
 
 export default TodoListPage;

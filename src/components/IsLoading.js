@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Loading = ({ resourceName = null }) => (
+const IsLoading = ({ resourceName = null }) => (
   <p className="text-center text-muted">
     {resourceName ? `Loading ${resourceName}...` : 'Loading...'}
   </p>
 );
 
-export default Loading;
+export default IsLoading;
