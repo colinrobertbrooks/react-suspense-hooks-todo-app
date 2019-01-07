@@ -11,6 +11,9 @@ const TodoListPage = React.lazy(() =>
 const TodoDetailsPage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoDetailsPage' */ './components/TodoDetailsPage')
 );
+const TodoCreatePage = React.lazy(() =>
+  import(/* webpackChunkName: 'TodoCreatePage' */ './components/TodoCreatePage')
+);
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
           <Router>
             <TodoListPage path={`${process.env.PUBLIC_URL}/`} />
             <TodoDetailsPage path={`${process.env.PUBLIC_URL}/details/:id`} />
+            <TodoCreatePage path={`${process.env.PUBLIC_URL}/create`} />
           </Router>
         </Container>
       </TodoProvider>

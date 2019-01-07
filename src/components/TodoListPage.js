@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import TodoContext from './TodoContext';
-import TodoAddButton from './TodoAddButton';
+import TodoCreateLink from './TodoCreateLink';
 import IsLoading from './IsLoading';
 import HasError from './HasError';
 import TodoList from './TodoList';
@@ -14,7 +14,7 @@ const TodoListPage = () => {
     <Row className="text-center">
       <Col xs={12}>
         <h2>Todos</h2>
-        <TodoAddButton />
+        <TodoCreateLink />
         <hr />
       </Col>
       <Col xs={12}>
