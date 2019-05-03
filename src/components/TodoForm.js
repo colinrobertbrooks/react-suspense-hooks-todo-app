@@ -27,7 +27,7 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
             id="test"
             name="text"
             value={text}
-            onChange={e => setText(e.target.value)}
+            onChange={event => setText(event.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -37,7 +37,7 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
             id="completed"
             name="completed"
             checked={completed}
-            onChange={e => setCompleted(e.target.checked)}
+            onChange={event => setCompleted(event.target.checked)}
             style={{ position: 'static', display: 'block', marginLeft: 0 }}
           />
         </FormGroup>

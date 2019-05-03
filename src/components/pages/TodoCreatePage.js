@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Row, Col } from 'reactstrap';
-
 import TodoContext from '../../contexts/TodoContext';
 import TodoForm from '../TodoForm';
 

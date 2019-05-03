@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 import { Container } from 'reactstrap';
-
 import IsLoading from './IsLoading';
 
 const TodoListPage = React.lazy(() =>

@@ -1,15 +1,9 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import { Row, Col, Table } from 'reactstrap';
-
-import useDocumentTitle from '../hooks/useDocumentTitle';
 import TodoCompletedBadge from './TodoCompletedBadge';
-
-const formatDate = value => {
-  const dt = new Date(value);
-
-  return dt.toLocaleString();
-};
+import useDocumentTitle from '../hooks/useDocumentTitle';
+import { formatDate } from '../utils/date';
 
 const TodoDetails = ({ todo, id }) => {
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');

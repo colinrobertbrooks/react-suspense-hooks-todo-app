@@ -4,7 +4,8 @@ import {
   setTodosToLocalStorage,
   delay
 } from './utils';
-import { initialTodos, getTimestamp } from './data';
+import { initialTodos } from './data';
+import { getDate } from '../utils/date';
 
 const RANDOM_ERRORS = false;
 
@@ -30,14 +31,14 @@ const api = {
       if (RANDOM_ERRORS && Math.random() > 0.5) {
         throw new Error('💣');
       }
-      const timestamp = getTimestamp();
+      const date = getDate();
       const user = 'user'; // TODO
       const newTodo = {
         ...todo,
         id: v4(),
-        createdAt: timestamp,
+        createdAt: date,
         createdBy: user,
-        updatedAt: timestamp,
+        updatedAt: date,
         updatedBy: user
       };
       const existingTodos = getTodosFromLocalStorage();

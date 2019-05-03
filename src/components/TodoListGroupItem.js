@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import { ListGroupItem } from 'reactstrap';
-
 import TodoCompletedBadge from './TodoCompletedBadge';
 
 const TodoListGroupItem = ({ id, text, completed }) => (

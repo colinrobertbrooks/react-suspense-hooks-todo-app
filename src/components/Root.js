@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { TodoProvider } from '../contexts/TodoContext';
 import App from './App';
 

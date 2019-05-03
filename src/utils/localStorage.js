@@ -3,7 +3,7 @@ export const getLocalStorageValue = key => {
   if (!value) return null;
   try {
     return JSON.parse(value);
-  } catch (e) {
+  } catch (error) {
     return null;
   }
 };

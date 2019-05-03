@@ -1,6 +1,5 @@
+/* eslint-disable import/prefer-default-export */
 import { v4 } from 'node-uuid';
-
-export const getTimestamp = () => new Date().getTime();
 
 export const initialTodos = [
   {

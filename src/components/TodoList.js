@@ -1,8 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-
-import useDocumentTitle from '../hooks/useDocumentTitle';
 import TodoListGroup from './TodoListGroup';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const TodoList = ({ todos }) => {
   useDocumentTitle('Todos');
