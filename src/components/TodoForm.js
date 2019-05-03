@@ -46,11 +46,11 @@ const TodoForm = ({
           />
         </FormGroup>
         <FormGroup>
-          <Button type="submit" outline color="success" size="sm">
+          <Button type="submit" color="primary">
             Submit
           </Button>{' '}
           <Link to={makeTo('/')}>
-            <Button outline color="danger" size="sm">
+            <Button color="secondary" outline style={{ marginLeft: 5 }}>
               Cancel
             </Button>
           </Link>
