@@ -1,7 +1,7 @@
 {
   "main.css": "/react-suspense-hooks-todo-app/static/css/main.ce828a51.chunk.css",
-  "main.js": "/react-suspense-hooks-todo-app/static/js/main.dad3ca87.chunk.js",
-  "main.js.map": "/react-suspense-hooks-todo-app/static/js/main.dad3ca87.chunk.js.map",
+  "main.js": "/react-suspense-hooks-todo-app/static/js/main.d673de78.chunk.js",
+  "main.js.map": "/react-suspense-hooks-todo-app/static/js/main.d673de78.chunk.js.map",
   "TodoListPage.js": "/react-suspense-hooks-todo-app/static/js/TodoListPage.26fac326.chunk.js",
   "TodoListPage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoListPage.26fac326.chunk.js.map",
   "TodoDetailsPage.js": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.03f8b550.chunk.js",
@@ -13,9 +13,9 @@
   "static/js/4.8770f7a9.chunk.js.map": "/react-suspense-hooks-todo-app/static/js/4.8770f7a9.chunk.js.map",
   "runtime~main.js": "/react-suspense-hooks-todo-app/static/js/runtime~main.345c0aa6.js",
   "runtime~main.js.map": "/react-suspense-hooks-todo-app/static/js/runtime~main.345c0aa6.js.map",
-  "static/css/main.ce828a51.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/main.ce828a51.chunk.css.map",
   "static/css/4.75a9b5cf.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/4.75a9b5cf.chunk.css.map",
+  "static/css/main.ce828a51.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/main.ce828a51.chunk.css.map",
   "index.html": "/react-suspense-hooks-todo-app/index.html",
-  "precache-manifest.d7f37595ded36503175d0468631de7f6.js": "/react-suspense-hooks-todo-app/precache-manifest.d7f37595ded36503175d0468631de7f6.js",
+  "precache-manifest.aa02adef0e65f382baf31e10df4d463e.js": "/react-suspense-hooks-todo-app/precache-manifest.aa02adef0e65f382baf31e10df4d463e.js",
   "service-worker.js": "/react-suspense-hooks-todo-app/service-worker.js"
 }
