@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import TodoContext from './TodoContext';
+import TodoContext from '../contexts/TodoContext';
 import TodoDetails from './TodoDetails';
 
 const TodoDetailsPage = ({ id }) => {

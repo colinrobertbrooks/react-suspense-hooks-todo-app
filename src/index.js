@@ -5,6 +5,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import App from './App';
+import Root from './components/Root';
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
