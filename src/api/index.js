@@ -33,14 +33,14 @@ const api = {
       setTodosToLocalStorage(initialTodos);
       return initialTodos;
     },
-    async create(todo) {
+    async create(values) {
       console.log(`📞 api.todos.create called:`);
       await delay(100);
       if (THROW_RANDOM_ERRORS) throwRandomError();
       const date = getDate();
       const user = 'user'; // TODO
       const newTodo = {
-        ...todo,
+        ...values,
         id: v4(),
         createdAt: date,
         createdBy: user,
@@ -49,6 +49,24 @@ const api = {
       };
       const existingTodos = getTodosFromLocalStorage();
       setTodosToLocalStorage([...existingTodos, newTodo]);
+    },
+    async update(id, values) {
+      console.log(`📞 api.todos.update called:`);
+      await delay(100);
+      if (THROW_RANDOM_ERRORS) throwRandomError();
+      const existingTodos = getTodosFromLocalStorage();
+      const updatedTodos = existingTodos.map(todo => {
+        if (todo.id !== id) {
+          return todo;
+        }
+        return {
+          ...todo,
+          ...values,
+          updatedAt: getDate(),
+          updatedBy: 'new user' // TODO
+        };
+      });
+      setTodosToLocalStorage(updatedTodos);
     },
     async delete(id) {
       console.log(`📞 api.todos.delete called:`);

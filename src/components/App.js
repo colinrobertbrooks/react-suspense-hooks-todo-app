@@ -13,6 +13,9 @@ const TodoDetailsPage = React.lazy(() =>
 const TodoCreatePage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoCreatePage' */ './pages/TodoCreatePage')
 );
+const TodoUpdatePage = React.lazy(() =>
+  import(/* webpackChunkName: 'TodoUpdatePage' */ './pages/TodoUpdatePage')
+);
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
           <TodoListPage path={makeTo('/')} />
           <TodoDetailsPage path={makeTo('/details/:id')} />
           <TodoCreatePage path={makeTo('/create')} />
+          <TodoUpdatePage path={makeTo('/update/:id')} />
         </Router>
       </Container>
     </Suspense>

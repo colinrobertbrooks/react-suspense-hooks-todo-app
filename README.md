@@ -24,7 +24,6 @@ Playing with new toys. :sunglasses:
 
 ## TODO
 
-- Update
 - User
 
 ## Boilerplate

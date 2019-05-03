@@ -60,9 +60,19 @@ const TodoProvider = ({ children }) => {
     return null;
   };
 
-  const createTodo = async todo => {
+  const createTodo = async ({ values }) => {
     try {
-      await api.todos.create(todo);
+      await api.todos.create(values);
+    } catch (error) {
+      throw error;
+    }
+
+    await getTodos();
+  };
+
+  const updateTodo = async ({ id, values }) => {
+    try {
+      await api.todos.update(id, values);
     } catch (error) {
       throw error;
     }
@@ -82,7 +92,7 @@ const TodoProvider = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{ ...store, getTodoById, createTodo, deleteTodo }}
+      value={{ ...store, getTodoById, createTodo, updateTodo, deleteTodo }}
     >
       {children}
     </TodoContext.Provider>

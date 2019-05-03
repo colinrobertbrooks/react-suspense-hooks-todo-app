@@ -3,7 +3,12 @@ import { Link, navigate } from '@reach/router';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { makeTo } from '../utils/router';
 
-const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
+const TodoForm = ({
+  id = null,
+  initialText = '',
+  initialCompleted = false,
+  onSubmit
+}) => {
   const [text, setText] = useState(initialText);
   const [completed, setCompleted] = useState(initialCompleted);
   const [onSubmitError, setOnSubmitError] = useState(null);
@@ -14,7 +19,7 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
       <Form
         onSubmit={async event => {
           event.preventDefault();
-          await onSubmit({ text, completed })
+          await onSubmit({ id, values: { text, completed } })
             .then(() => navigate(makeTo('/')))
             .catch(({ message }) => setOnSubmitError(message));
         }}

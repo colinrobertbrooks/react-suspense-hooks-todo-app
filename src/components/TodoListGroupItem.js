@@ -16,10 +16,12 @@ const TodoListGroupItem = ({ id, text, completed }) => {
 
   return (
     <ListGroupItem className="text-center">
-      <h4>
+      <h2>
         {text} <TodoCompletedBadge completed={completed} />
-      </h4>
+      </h2>
       <Link to={makeTo(`/details/${id}`)}>Details</Link>
+      <span className="text-muted"> | </span>
+      <Link to={makeTo(`/update/${id}`)}>Update</Link>
       <span className="text-muted"> | </span>
       <button type="button" className="look-like-a-link" onClick={handleDelete}>
         Delete

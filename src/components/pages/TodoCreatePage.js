@@ -8,8 +8,8 @@ const TodoCreatePage = () => {
 
   return (
     <Row>
-      <Col xs={12} className="text-center">
-        <h2>Create Todo</h2>
+      <Col xs={12}>
+        <h1 className="text-center">Create Todo</h1>
         <hr />
       </Col>
       <Col xs={12}>
