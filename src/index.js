@@ -4,4 +4,4 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Root from './components/Root';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
+ReactDOM.unstable_createRoot(document.getElementById('root')).render(<Root />);
