@@ -1,42 +1,48 @@
-import { delay } from './utils';
-import { initialTodos } from './data';
-import { getLocalStorageValue, setLocalStorage } from '../utils/localStorage';
-
-const LOCAL_STORAGE_KEY = 'TODOS_DATA';
-
-/*
-  if(Math.random() > 0.5) {
-    throw new Error('😢');
-  }
-*/
+import { v4 } from 'node-uuid';
+import {
+  getTodosFromLocalStorage,
+  setTodosToLocalStorage,
+  delay
+} from './utils';
+import { initialTodos, getTimestamp } from './data';
 
 const api = {
   todos: {
     async list() {
-      const localStorageTodos = getLocalStorageValue(LOCAL_STORAGE_KEY);
-
-      if (localStorageTodos) {
-        console.log('📚 `todos` loaded from local storage.');
-        return JSON.parse(localStorageTodos);
+      /*
+      if (Math.random() > 0.5) {
+        throw new Error('💣');
+      }
+      */
+      const todosFromLocalStorage = getTodosFromLocalStorage();
+      if (todosFromLocalStorage) {
+        return todosFromLocalStorage;
       }
 
       console.log('📞 `api.todos.list` called:');
       await delay();
-
-      console.log('📚 `todos` set to local storage.');
-      setLocalStorage(LOCAL_STORAGE_KEY, JSON.stringify(initialTodos));
-
+      setTodosToLocalStorage(initialTodos);
       return initialTodos;
-    }
-    /*
-    async get(id) {
-      console.log(`📞 api.todos.get called for id ${id}:`);
-
+    },
+    async create(todo) {
+      console.log(`📞 api.todos.create called:`);
+      const timestamp = getTimestamp();
+      const user = 'user'; // TODO
+      const newTodo = {
+        ...todo,
+        id: v4(),
+        createdAt: timestamp,
+        createdBy: user,
+        updatedAt: timestamp,
+        updatedBy: user
+      };
+      /*
+      throw new Error('💣');
+      */
+      const existingTodos = getTodosFromLocalStorage();
+      setTodosToLocalStorage([...existingTodos, newTodo]);
       await delay();
-
-      return todos.find(todo => todo.id === id);
     }
-    */
   }
 };
 

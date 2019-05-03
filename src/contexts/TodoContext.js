@@ -40,7 +40,6 @@ const TodoProvider = ({ children }) => {
   const fetchTodoList = async () => {
     try {
       const todos = await api.todos.list();
-
       dispatch({ type: FETCH_TODO_LIST_SUCCESS, payload: { todos } });
     } catch (error) {
       dispatch({ type: FETCH_TODO_LIST_ERROR, payload: { error } });
@@ -61,8 +60,18 @@ const TodoProvider = ({ children }) => {
     return null;
   };
 
+  const createTodo = async todo => {
+    try {
+      await api.todos.create(todo);
+    } catch (error) {
+      throw error;
+    }
+
+    await fetchTodoList();
+  };
+
   return (
-    <TodoContext.Provider value={{ ...store, getTodoById }}>
+    <TodoContext.Provider value={{ ...store, getTodoById, createTodo }}>
       {children}
     </TodoContext.Provider>
   );

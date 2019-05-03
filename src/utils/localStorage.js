@@ -1,4 +1,4 @@
-export function getLocalStorageValue(key) {
+export const getLocalStorageValue = key => {
   const value = localStorage.getItem(key);
   if (!value) return null;
   try {
@@ -6,8 +6,8 @@ export function getLocalStorageValue(key) {
   } catch (e) {
     return null;
   }
-}
+};
 
-export function setLocalStorage(key, value) {
+export const setLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
-}
+};
