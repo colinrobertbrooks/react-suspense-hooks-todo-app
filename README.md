@@ -22,7 +22,6 @@ Playing with new toys. :sunglasses:
 
 ## TODO
 
-- Delete
 - Update
 - User
 

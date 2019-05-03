@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { makeTo } from '../utils/router';
 
 const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
   const [text, setText] = useState(initialText);
@@ -14,10 +15,8 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
         onSubmit={async event => {
           event.preventDefault();
           await onSubmit({ text, completed })
-            .then(() => {
-              navigate(`${process.env.PUBLIC_URL}/`);
-            })
-            .catch(error => setOnSubmitError(error.message));
+            .then(() => navigate(makeTo('/')))
+            .catch(({ message }) => setOnSubmitError(message));
         }}
       >
         <FormGroup>
@@ -45,7 +44,7 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
           <Button type="submit" outline color="success" size="sm">
             Submit
           </Button>{' '}
-          <Link to={`${process.env.PUBLIC_URL}/`}>
+          <Link to={makeTo('/')}>
             <Button outline color="danger" size="sm">
               Cancel
             </Button>

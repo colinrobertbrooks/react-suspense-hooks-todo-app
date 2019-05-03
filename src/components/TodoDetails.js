@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { Row, Col, Table } from 'reactstrap';
 import TodoCompletedBadge from './TodoCompletedBadge';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { formatDate } from '../utils/date';
+import { makeTo } from '../utils/router';
 
-const TodoDetails = ({ todo, id }) => {
+const TodoDetails = ({ id, todo, deleteTodo }) => {
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
+
+  const handleDelete = async () => {
+    await deleteTodo(id)
+      .then(() => navigate(makeTo('/')))
+      .catch(({ message }) => alert(`Error deleting todo: ${message}`));
+  };
 
   if (!todo) {
     return (
@@ -23,7 +30,7 @@ const TodoDetails = ({ todo, id }) => {
           </p>
         </Col>
         <Col xs={12}>
-          <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
+          <Link to={makeTo('/')}>All Todos</Link>
         </Col>
       </Row>
     );
@@ -37,6 +44,13 @@ const TodoDetails = ({ todo, id }) => {
         <h2>
           {text} <TodoCompletedBadge completed={completed} />
         </h2>
+        <button
+          type="button"
+          className="look-like-a-link"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
         <hr />
       </Col>
       <Col xs={12}>
@@ -63,7 +77,7 @@ const TodoDetails = ({ todo, id }) => {
         </Table>
       </Col>
       <Col xs={12}>
-        <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
+        <Link to={makeTo('/')}>All Todos</Link>
       </Col>
     </Row>
   );

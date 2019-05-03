@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 import { Container } from 'reactstrap';
 import IsLoading from './IsLoading';
+import { makeTo } from '../utils/router';
 
 const TodoListPage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoListPage' */ './pages/TodoListPage')
@@ -18,9 +19,9 @@ function App() {
     <Suspense maxDuration={500} fallback={<IsLoading />}>
       <Container>
         <Router>
-          <TodoListPage path={`${process.env.PUBLIC_URL}/`} />
-          <TodoDetailsPage path={`${process.env.PUBLIC_URL}/details/:id`} />
-          <TodoCreatePage path={`${process.env.PUBLIC_URL}/create`} />
+          <TodoListPage path={makeTo('/')} />
+          <TodoDetailsPage path={makeTo('/details/:id')} />
+          <TodoCreatePage path={makeTo('/create')} />
         </Router>
       </Container>
     </Suspense>

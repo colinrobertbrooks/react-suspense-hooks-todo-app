@@ -2,3 +2,18 @@ body {
   min-width: 300px;
   padding-top: 15px;
 }
+
+.look-like-a-link {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font: inherit;
+  padding: 0 !important;
+  text-decoration: none;
+}
+
+.look-like-a-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
