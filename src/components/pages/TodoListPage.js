@@ -10,13 +10,13 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { makeTo } from '../../utils/router';
 
 const TodoListPage = () => {
-  useDocumentTitle('Todos');
+  useDocumentTitle('All Todos');
   const { isLoading, error, todos } = useContext(TodoContext);
 
   return (
     <Row>
       <Col xs={12} className="text-center">
-        <h1>Todos</h1>
+        <h1>All Todos</h1>
         <Link to={makeTo('/create')}>Create</Link>
         <hr />
       </Col>

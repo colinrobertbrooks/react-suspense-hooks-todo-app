@@ -9,7 +9,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 const UpdateTodoPage = ({ id }) => {
   const { isLoading, getTodoById, updateTodo } = useContext(TodoContext);
   const todo = getTodoById(id);
-  useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
+  useDocumentTitle(todo ? `Update "${todo.text}" todo` : 'Todo Not Found');
 
   if (!isLoading && !todo) {
     return <TodoNotFound id={id} />;
