@@ -7,7 +7,7 @@ import TodoForm from '../TodoForm';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const UpdateTodoPage = ({ id }) => {
-  const { isLoading, getTodoById } = useContext(TodoContext);
+  const { isLoading, getTodoById, updateTodo } = useContext(TodoContext);
   const todo = getTodoById(id);
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
 
@@ -31,9 +31,10 @@ const UpdateTodoPage = ({ id }) => {
 
           return (
             <TodoForm
+              id={id}
               initialText={text}
               initialCompleted={completed}
-              onSubmit={() => alert('TODO')}
+              onSubmit={updateTodo}
             />
           );
         })()}
