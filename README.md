@@ -6,13 +6,13 @@ Playing with new toys. :sunglasses:
 
 `$ yarn start`
 
-## Tests (TODO)
-
-`$ yarn test`
-
 ## Build
 
 `$ yarn build`
+
+## Deploy
+
+`$ yarn deploy`
 
 ## References
 
