@@ -1,5 +1,8 @@
-import { delay } from './helpers';
-import { todos } from './data';
+import { delay } from './utils';
+import { initialTodos } from './data';
+import { getLocalStorageValue, setLocalStorage } from '../utils/localStorage';
+
+const LOCAL_STORAGE_KEY = 'TODOS_DATA';
 
 /*
   if(Math.random() > 0.5) {
@@ -10,11 +13,19 @@ import { todos } from './data';
 const api = {
   todos: {
     async list() {
-      console.log('📞 api.todos.list called:');
+      const localStorageTodos = getLocalStorageValue(LOCAL_STORAGE_KEY);
 
+      if (localStorageTodos) {
+        console.log('📚 todos loaded from local storage.');
+        return JSON.parse(localStorageTodos);
+      }
+
+      console.log('📞 api.todos.list called:');
       await delay();
 
-      return todos;
+      console.log('📚 todos set to local storage.');
+      setLocalStorage(LOCAL_STORAGE_KEY, JSON.stringify(initialTodos));
+      return initialTodos;
     }
     /*
     async get(id) {
