@@ -7,26 +7,26 @@ export const initialTodos = [
     text: 'Try Suspense',
     completed: true,
     createdAt: 1541163993401,
-    createdBy: 'colin',
+    createdBy: 'colinrcummings',
     updatedAt: 1541163996938,
-    updatedBy: 'colin'
+    updatedBy: 'colinrcummings'
   },
   {
     id: v4(),
     text: 'Try Hooks',
     completed: true,
     createdAt: 1541163995178,
-    createdBy: 'colin',
+    createdBy: 'colinrcummings',
     updatedAt: 1541163996938,
-    updatedBy: 'colin'
+    updatedBy: 'colinrcummings'
   },
   {
     id: v4(),
     text: 'Profit',
     completed: false,
     createdAt: 1541163996071,
-    createdBy: 'colin',
+    createdBy: 'colinrcummings',
     updatedAt: 1541163996071,
-    updatedBy: 'colin'
+    updatedBy: 'colinrcummings'
   }
 ];
