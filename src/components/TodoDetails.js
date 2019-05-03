@@ -4,18 +4,15 @@ import { Row, Col, Table } from 'reactstrap';
 import TodoCompletedBadge from './TodoCompletedBadge';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { formatDate } from '../utils/date';
+import { makeTo } from '../utils/router';
 
 const TodoDetails = ({ id, todo, deleteTodo }) => {
   useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
 
   const handleDelete = async () => {
     await deleteTodo(id)
-      .then(() => {
-        navigate(`${process.env.PUBLIC_URL}/`);
-      })
-      .catch(({ message }) => {
-        alert(`Error deleting todo: ${message}`);
-      });
+      .then(() => navigate(makeTo('/')))
+      .catch(({ message }) => alert(`Error deleting todo: ${message}`));
   };
 
   if (!todo) {
@@ -33,7 +30,7 @@ const TodoDetails = ({ id, todo, deleteTodo }) => {
           </p>
         </Col>
         <Col xs={12}>
-          <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
+          <Link to={makeTo('/')}>All Todos</Link>
         </Col>
       </Row>
     );
@@ -80,7 +77,7 @@ const TodoDetails = ({ id, todo, deleteTodo }) => {
         </Table>
       </Col>
       <Col xs={12}>
-        <Link to={`${process.env.PUBLIC_URL}/`}>Todos</Link>
+        <Link to={makeTo('/')}>All Todos</Link>
       </Col>
     </Row>
   );

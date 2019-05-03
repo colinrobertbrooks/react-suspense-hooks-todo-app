@@ -3,14 +3,15 @@ import { Link } from '@reach/router';
 import { ListGroupItem } from 'reactstrap';
 import TodoContext from '../contexts/TodoContext';
 import TodoCompletedBadge from './TodoCompletedBadge';
+import { makeTo } from '../utils/router';
 
 const TodoListGroupItem = ({ id, text, completed }) => {
   const { deleteTodo } = useContext(TodoContext);
 
   const handleDelete = async () => {
-    await deleteTodo(id).catch(({ message }) => {
-      alert(`Error deleting todo: ${message}`);
-    });
+    await deleteTodo(id).catch(({ message }) =>
+      alert(`Error deleting todo: ${message}`)
+    );
   };
 
   return (
@@ -18,7 +19,7 @@ const TodoListGroupItem = ({ id, text, completed }) => {
       <h4>
         {text} <TodoCompletedBadge completed={completed} />
       </h4>
-      <Link to={`${process.env.PUBLIC_URL}/details/${id}`}>Details</Link>
+      <Link to={makeTo(`/details/${id}`)}>Details</Link>
       <span className="text-muted"> | </span>
       <button type="button" className="look-like-a-link" onClick={handleDelete}>
         Delete
