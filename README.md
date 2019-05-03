@@ -16,8 +16,9 @@ Playing with new toys. :sunglasses:
 
 ## References
 
-- [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
 - [Hooks](https://reactjs.org/docs/hooks-reference.html)
+- [StrictMode](https://reactjs.org/docs/strict-mode.html)
+- [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
 - [ConcurrentMode](https://github.com/sw-yx/fresh-concurrent-react/blob/master/apis/roots.md#reactdomcreateroot-and-rootrender)
 - [Cache API](https://github.com/facebook/react/pull/13337#issuecomment-425974864)
 
