@@ -2,9 +2,11 @@ import React from 'react';
 import { Badge } from 'reactstrap';
 
 const TodoCompletedBadge = ({ completed }) => (
-  <Badge color={completed ? 'success' : 'danger'}>
-    {completed ? 'Completed' : 'Not Completed'}
-  </Badge>
+  <small style={{ display: 'block' }}>
+    <Badge color={completed ? 'success' : 'danger'}>
+      {completed ? 'Completed' : 'Not Completed'}
+    </Badge>
+  </small>
 );
 
 export default TodoCompletedBadge;
