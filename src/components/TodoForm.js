@@ -17,7 +17,7 @@ const TodoForm = ({ initialText = '', initialCompleted = false, onSubmit }) => {
             .then(() => {
               navigate(`${process.env.PUBLIC_URL}/`);
             })
-            .catch(error => setOnSubmitError(error.message));
+            .catch(({ message }) => setOnSubmitError(message));
         }}
       >
         <FormGroup>

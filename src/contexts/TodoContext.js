@@ -37,7 +37,7 @@ const TodoProvider = ({ children }) => {
     }
   }, initialState);
 
-  const fetchTodoList = async () => {
+  const getTodos = async () => {
     try {
       const todos = await api.todos.list();
       dispatch({ type: FETCH_TODO_LIST_SUCCESS, payload: { todos } });
@@ -47,7 +47,7 @@ const TodoProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchTodoList();
+    getTodos();
   }, []);
 
   const getTodoById = id => {
@@ -67,11 +67,23 @@ const TodoProvider = ({ children }) => {
       throw error;
     }
 
-    await fetchTodoList();
+    await getTodos();
+  };
+
+  const deleteTodo = async id => {
+    try {
+      await api.todos.delete(id);
+    } catch (error) {
+      throw error;
+    }
+
+    await getTodos();
   };
 
   return (
-    <TodoContext.Provider value={{ ...store, getTodoById, createTodo }}>
+    <TodoContext.Provider
+      value={{ ...store, getTodoById, createTodo, deleteTodo }}
+    >
       {children}
     </TodoContext.Provider>
   );

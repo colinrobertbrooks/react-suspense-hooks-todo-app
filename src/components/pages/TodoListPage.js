@@ -19,11 +19,13 @@ const TodoListPage = () => {
       <Col xs={12}>
         {(() => {
           if (isLoading) {
-            return <IsLoading resourceName="todos" />;
+            return <IsLoading message="Loading todos..." />;
           }
 
           if (error) {
-            return <HasError resourceName="todos" />;
+            return (
+              <HasError message={`Error loading todos: ${error.message}`} />
+            );
           }
 
           return <TodoList todos={todos} />;

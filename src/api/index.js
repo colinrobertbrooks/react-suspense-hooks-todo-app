@@ -7,30 +7,36 @@ import {
 import { initialTodos } from './data';
 import { getDate } from '../utils/date';
 
-const RANDOM_ERRORS = false;
+const LOAD_INITIAL_TODOS_FROM_LOCAL_STORAGE = true;
+const THROW_RANDOM_ERRORS = false;
+
+const throwRandomError = () => {
+  const errors = ['😢', '👹', '💩', '💣', '💀'];
+  if (Math.random() > 0.5) {
+    const randomError = errors[Math.floor(Math.random() * errors.length)];
+    throw new Error(randomError);
+  }
+};
 
 const api = {
   todos: {
     async list() {
       console.log('📞 `api.todos.list` called:');
-      if (RANDOM_ERRORS && Math.random() > 0.5) {
-        throw new Error('💣');
+      if (THROW_RANDOM_ERRORS) throwRandomError();
+      if (LOAD_INITIAL_TODOS_FROM_LOCAL_STORAGE) {
+        const todosFromLocalStorage = getTodosFromLocalStorage();
+        if (todosFromLocalStorage) {
+          return todosFromLocalStorage;
+        }
       }
-      const todosFromLocalStorage = getTodosFromLocalStorage();
-      if (todosFromLocalStorage) {
-        return todosFromLocalStorage;
-      }
-
       await delay();
       setTodosToLocalStorage(initialTodos);
       return initialTodos;
     },
     async create(todo) {
       console.log(`📞 api.todos.create called:`);
-      await delay();
-      if (RANDOM_ERRORS && Math.random() > 0.5) {
-        throw new Error('💣');
-      }
+      await delay(100);
+      if (THROW_RANDOM_ERRORS) throwRandomError();
       const date = getDate();
       const user = 'user'; // TODO
       const newTodo = {
@@ -43,6 +49,16 @@ const api = {
       };
       const existingTodos = getTodosFromLocalStorage();
       setTodosToLocalStorage([...existingTodos, newTodo]);
+    },
+    async delete(id) {
+      console.log(`📞 api.todos.delete called:`);
+      await delay(100);
+      if (THROW_RANDOM_ERRORS) throwRandomError();
+      const existingTodos = getTodosFromLocalStorage();
+      const idxToDelete = existingTodos.findIndex(todo => todo.id === id);
+      setTodosToLocalStorage(
+        existingTodos.filter((todo, idx) => idx !== idxToDelete)
+      );
     }
   }
 };
