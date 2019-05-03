@@ -22,9 +22,9 @@ Playing with new toys. :sunglasses:
 
 ## TODO
 
-- Create
-- Update
 - Delete
+- Update
+- User
 
 ## Boilerplate
 
