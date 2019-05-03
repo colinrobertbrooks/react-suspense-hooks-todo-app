@@ -12,7 +12,7 @@ import { makeTo } from '../../utils/router';
 const TodoDetailsPage = ({ id }) => {
   const { isLoading, getTodoById, deleteTodo } = useContext(TodoContext);
   const todo = getTodoById(id);
-  useDocumentTitle(todo ? `Details for "${todo.text}" todo` : 'Todo Not Found');
+  useDocumentTitle(todo ? `Details for "${todo.text}"` : 'Todo Not Found');
 
   const handleDelete = async () => {
     await deleteTodo(id)
