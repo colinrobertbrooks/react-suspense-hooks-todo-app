@@ -5,13 +5,13 @@ import { Container } from 'reactstrap';
 import IsLoading from './IsLoading';
 
 const TodoListPage = React.lazy(() =>
-  import(/* webpackChunkName: 'TodoListPage' */ './TodoListPage')
+  import(/* webpackChunkName: 'TodoListPage' */ './pages/TodoListPage')
 );
 const TodoDetailsPage = React.lazy(() =>
-  import(/* webpackChunkName: 'TodoDetailsPage' */ './TodoDetailsPage')
+  import(/* webpackChunkName: 'TodoDetailsPage' */ './pages/TodoDetailsPage')
 );
 const TodoCreatePage = React.lazy(() =>
-  import(/* webpackChunkName: 'TodoCreatePage' */ './TodoCreatePage')
+  import(/* webpackChunkName: 'TodoCreatePage' */ './pages/TodoCreatePage')
 );
 
 function App() {

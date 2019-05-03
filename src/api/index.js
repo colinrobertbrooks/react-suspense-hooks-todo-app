@@ -16,15 +16,16 @@ const api = {
       const localStorageTodos = getLocalStorageValue(LOCAL_STORAGE_KEY);
 
       if (localStorageTodos) {
-        console.log('📚 todos loaded from local storage.');
+        console.log('📚 `todos` loaded from local storage.');
         return JSON.parse(localStorageTodos);
       }
 
-      console.log('📞 api.todos.list called:');
+      console.log('📞 `api.todos.list` called:');
       await delay();
 
-      console.log('📚 todos set to local storage.');
+      console.log('📚 `todos` set to local storage.');
       setLocalStorage(LOCAL_STORAGE_KEY, JSON.stringify(initialTodos));
+
       return initialTodos;
     }
     /*

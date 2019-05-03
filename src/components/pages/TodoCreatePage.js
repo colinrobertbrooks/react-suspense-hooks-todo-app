@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-import TodoCreateForm from './TodoCreateForm';
+import TodoCreateForm from '../TodoCreateForm';
 
 const TodoCreatePage = () => (
   <Row>
@@ -10,7 +10,7 @@ const TodoCreatePage = () => (
       <hr />
     </Col>
     <Col xs={12}>
-      <TodoCreateForm handleSubmit={data => console.log(data)} />
+      <TodoCreateForm />
     </Col>
   </Row>
 );
