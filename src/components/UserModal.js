@@ -9,7 +9,7 @@ import {
   Button
 } from 'reactstrap';
 
-const UserModal = ({ onSubmit }) => {
+const UserModal = ({ updateUser }) => {
   const [user, setUser] = useState('');
 
   return (
@@ -25,7 +25,7 @@ const UserModal = ({ onSubmit }) => {
       <Form
         onSubmit={event => {
           event.preventDefault();
-          onSubmit(user);
+          updateUser(user);
         }}
       >
         <ModalBody>

@@ -33,8 +33,8 @@ const App = () => {
           <TodoUpdatePage path={makeTo('/update/:id')} />
         </Router>
       </Container>
-      <Footer user={user} />
-      {!user && <UserModal onSubmit={updateUser} />}
+      <Footer user={user} clearUser={() => updateUser(null)} />
+      {!user && <UserModal updateUser={updateUser} />}
     </Suspense>
   );
 };
