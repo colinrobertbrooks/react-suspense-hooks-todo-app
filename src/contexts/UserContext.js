@@ -1,10 +1,12 @@
 import React, { createContext, useState } from 'react';
 import { getUserFromLocalStorage, setUserToLocalStorage } from '../api/utils';
 
+const initialUser = getUserFromLocalStorage();
+
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(getUserFromLocalStorage());
+  const [user, setUser] = useState(initialUser);
 
   const updateUser = nextUser => {
     setUser(nextUser);
