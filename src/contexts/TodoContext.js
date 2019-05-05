@@ -13,7 +13,7 @@ const FETCH_TODO_LIST_ERROR = 'FETCH_TODO_LIST_ERROR';
 
 const TodoContext = React.createContext(null);
 
-const TodoProvider = ({ children }) => {
+export const TodoProvider = ({ children }) => {
   const [store, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case FETCH_TODO_LIST_SUCCESS:
@@ -99,8 +99,4 @@ const TodoProvider = ({ children }) => {
   );
 };
 
-const TodoConsumer = TodoContext.Consumer;
-
 export default TodoContext;
-
-export { TodoProvider, TodoConsumer };

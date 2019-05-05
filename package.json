@@ -15,6 +15,7 @@
     "react": "^16.7.0-alpha.0",
     "react-cache": "2.0.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
+    "react-modal": "^3.8.1",
     "react-scripts": "3.0.0",
     "reactstrap": "^8.0.0"
   },

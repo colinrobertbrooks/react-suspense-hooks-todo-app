@@ -1,4 +1,5 @@
 import React, { StrictMode } from 'react';
+import { UserProvider } from '../contexts/UserContext';
 import { TodoProvider } from '../contexts/TodoContext';
 import App from './App';
 // import UnsafeExample from './UnsafeExample';
@@ -6,9 +7,11 @@ import App from './App';
 function Root() {
   return (
     <StrictMode>
-      <TodoProvider>
-        <App />
-      </TodoProvider>
+      <UserProvider>
+        <TodoProvider>
+          <App />
+        </TodoProvider>
+      </UserProvider>
     </StrictMode>
   );
 }

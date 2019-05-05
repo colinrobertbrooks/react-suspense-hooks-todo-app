@@ -1,7 +1,6 @@
 body {
   min-width: 320px;
   padding-top: 15px;
-  padding-bottom: 30px;
 }
 
 .look-like-a-link {
@@ -17,4 +16,16 @@ body {
 .look-like-a-link:hover {
   color: #0056b3;
   text-decoration: underline;
+}
+
+.modal.show {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+  background-color: #f5f5f5;
+  margin-top: 30px;
+  min-height: 60px;
+  padding: 15px 0;
 }
