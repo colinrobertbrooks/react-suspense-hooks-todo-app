@@ -1,5 +1,6 @@
 import { v4 } from 'node-uuid';
 import {
+  getUserFromLocalStorage,
   getTodosFromLocalStorage,
   setTodosToLocalStorage,
   delay
@@ -38,7 +39,7 @@ const api = {
       await delay(100);
       if (THROW_RANDOM_ERRORS) throwRandomError();
       const date = getDate();
-      const user = 'user'; // TODO
+      const user = getUserFromLocalStorage();
       const newTodo = {
         ...values,
         id: v4(),
@@ -63,7 +64,7 @@ const api = {
           ...todo,
           ...values,
           updatedAt: getDate(),
-          updatedBy: 'new user' // TODO
+          updatedBy: getUserFromLocalStorage()
         };
       });
       setTodosToLocalStorage(updatedTodos);

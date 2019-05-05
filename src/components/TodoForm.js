@@ -28,7 +28,7 @@ const TodoForm = ({
           <Label for="text">Text</Label>
           <Input
             type="text"
-            id="test"
+            id="text"
             name="text"
             value={text}
             onChange={event => setText(event.target.value)}

@@ -1,7 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { Router } from '@reach/router';
 import { Container } from 'reactstrap';
+import UserContext from '../contexts/UserContext';
 import IsLoading from './IsLoading';
+import Footer from './Footer';
+import UserModal from './UserModal';
 import { makeTo } from '../utils/router';
 
 const TodoListPage = React.lazy(() =>
@@ -17,7 +20,9 @@ const TodoUpdatePage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoUpdatePage' */ './pages/TodoUpdatePage')
 );
 
-function App() {
+const App = () => {
+  const { user, updateUser } = useContext(UserContext);
+
   return (
     <Suspense maxDuration={500} fallback={<IsLoading />}>
       <Container>
@@ -28,8 +33,10 @@ function App() {
           <TodoUpdatePage path={makeTo('/update/:id')} />
         </Router>
       </Container>
+      <Footer user={user} clearUser={() => updateUser(null)} />
+      {!user && <UserModal updateUser={updateUser} />}
     </Suspense>
   );
-}
+};
 
 export default App;
