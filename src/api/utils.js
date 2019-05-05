@@ -15,7 +15,7 @@ export const getUserFromLocalStorage = () => {
 };
 
 export const setUserToLocalStorage = user => {
-  console.log('👤 `user`  written to local storage');
+  console.log('👤 `user` written to local storage');
   setLocalStorage(USER_LOCAL_STORAGE_KEY, user);
 };
 
