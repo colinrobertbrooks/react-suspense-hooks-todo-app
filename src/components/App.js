@@ -21,7 +21,7 @@ const TodoUpdatePage = React.lazy(() =>
 );
 
 const App = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
 
   return (
     <Suspense maxDuration={500} fallback={<IsLoading />}>
@@ -34,7 +34,7 @@ const App = () => {
         </Router>
       </Container>
       <Footer user={user} />
-      {!user && <UserModal onSubmit={setUser} />}
+      {!user && <UserModal onSubmit={updateUser} />}
     </Suspense>
   );
 };
