@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import {
   ModalHeader,
@@ -10,11 +10,23 @@ import {
 } from 'reactstrap';
 
 const UserModal = ({ updateUser }) => {
+  const [hasOpened, setHasOpened] = useState(false);
   const [user, setUser] = useState('');
+  const userInputRef = useRef(null);
+
+  useEffect(
+    () => {
+      if (userInputRef.current) {
+        userInputRef.current.focus();
+      }
+    },
+    [hasOpened]
+  );
 
   return (
     <ReactModal
       isOpen
+      onAfterOpen={() => setHasOpened(true)}
       className="modal-content"
       overlayClassName="modal-dialog"
       portalClassName="modal fade show"
@@ -30,6 +42,7 @@ const UserModal = ({ updateUser }) => {
       >
         <ModalBody>
           <Input
+            innerRef={userInputRef}
             aria-label="User"
             placeholder="enter username"
             type="text"

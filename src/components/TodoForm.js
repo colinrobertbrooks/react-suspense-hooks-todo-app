@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, navigate } from '@reach/router';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { makeTo } from '../utils/router';
@@ -12,6 +12,11 @@ const TodoForm = ({
   const [text, setText] = useState(initialText);
   const [completed, setCompleted] = useState(initialCompleted);
   const [onSubmitError, setOnSubmitError] = useState(null);
+  const textInputRef = useRef(null);
+
+  useEffect(() => {
+    textInputRef.current.focus();
+  }, []);
 
   return (
     <div>
@@ -27,6 +32,7 @@ const TodoForm = ({
         <FormGroup>
           <Label for="text">Text</Label>
           <Input
+            innerRef={textInputRef}
             type="text"
             id="text"
             name="text"
