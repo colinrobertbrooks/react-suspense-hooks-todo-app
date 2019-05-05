@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-suspense-hooks-todo-app/precache-manifest.464641f766647740067278f47628d436.js"
+  "/react-suspense-hooks-todo-app/precache-manifest.5e021e5589797766d50516b5844c0ab0.js"
 );
 
 self.addEventListener('message', (event) => {
