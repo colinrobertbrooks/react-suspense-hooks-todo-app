@@ -1,4 +1,4 @@
-## Todo App built with React Suspense & Hooks (WIP)
+## Todo App built with React Suspense & Hooks
 
 Playing with new toys. :sunglasses:
 
@@ -22,10 +22,6 @@ Playing with new toys. :sunglasses:
 - [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
 - [ConcurrentMode](https://github.com/sw-yx/fresh-concurrent-react/blob/master/apis/roots.md#reactdomcreateroot-and-rootrender)
 - [Cache API](https://github.com/facebook/react/pull/13337#issuecomment-425974864)
-
-## TODO
-
-- User
 
 ## Boilerplate
 
