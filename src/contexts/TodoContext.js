@@ -1,5 +1,4 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-
 import api from '../api';
 
 const initialState = {
