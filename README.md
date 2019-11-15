@@ -4,15 +4,15 @@ Playing with new toys. :sunglasses:
 
 ## Development
 
-`$ yarn start`
+`$ npm start`
 
 ## Build
 
-`$ yarn build`
+`$ npm run build`
 
 ## Deploy
 
-`$ yarn deploy`
+`$ npm run deploy`
 
 ## References
 

@@ -1,7 +1,8 @@
-/* eslint-disable import/prefer-default-export */
 import { v4 } from 'node-uuid';
+import { USE_LOCAL_STORAGE_FOR_TODOS } from '../config';
+import { getTodosFromLocalStorage, setTodosToLocalStorage } from './utils';
 
-export const initialTodos = [
+const defaultTodosData = [
   {
     id: v4(),
     text: 'Try Suspense',
@@ -30,3 +31,25 @@ export const initialTodos = [
     updatedBy: 'colinrcummings'
   }
 ];
+
+let todosData = (() => {
+  if (USE_LOCAL_STORAGE_FOR_TODOS) {
+    const todosFromLocalStorage = getTodosFromLocalStorage();
+
+    if (todosFromLocalStorage) {
+      return todosFromLocalStorage;
+    }
+
+    setTodosToLocalStorage(defaultTodosData);
+    return defaultTodosData;
+  }
+
+  return defaultTodosData;
+})();
+
+export const getTodosData = () => todosData;
+
+export const setTodosData = nextTodosData => {
+  todosData = nextTodosData;
+  if (USE_LOCAL_STORAGE_FOR_TODOS) setTodosToLocalStorage(nextTodosData);
+};
