@@ -1,11 +1,11 @@
-import React, { Suspense, useContext } from 'react';
 import { Router } from '@reach/router';
+import React, { Suspense, useContext } from 'react';
 import { Container } from 'reactstrap';
 import UserContext from '../contexts/UserContext';
-import IsLoading from './IsLoading';
-import Footer from './Footer';
-import UserModal from './UserModal';
 import { makeTo } from '../utils/router';
+import Footer from './Footer';
+import IsLoading from './IsLoading';
+import UserModal from './UserModal';
 
 const TodoListPage = React.lazy(() =>
   import(/* webpackChunkName: 'TodoListPage' */ './pages/TodoListPage')
@@ -24,7 +24,7 @@ const App = () => {
   const { user, updateUser } = useContext(UserContext);
 
   return (
-    <Suspense maxDuration={500} fallback={<IsLoading />}>
+    <Suspense fallback={<IsLoading />}>
       <Container>
         <Router>
           <TodoListPage path={makeTo('/')} />
