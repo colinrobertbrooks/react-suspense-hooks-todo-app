@@ -20,7 +20,7 @@ Playing with new toys. :sunglasses:
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 - [StrictMode](https://reactjs.org/docs/strict-mode.html)
 - [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
-- [ConcurrentMode](https://reactjs.org/docs/concurrent-mode-intro.html)
+- [Concurrent Mode](https://reactjs.org/docs/concurrent-mode-intro.html)
 
 ## Boilerplate
 
