@@ -1,4 +1,4 @@
-export const USE_LOCAL_STORAGE_FOR_TODOS = true; // boolean
+export const USE_LOCAL_STORAGE_FOR_TODOS = false; // boolean
 
 export const MIN_RANDOM_API_DELAY_MIN_MS = 100; // number
 
