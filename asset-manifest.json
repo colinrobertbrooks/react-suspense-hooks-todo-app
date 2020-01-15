@@ -1,25 +1,33 @@
 {
   "files": {
-    "TodoCreatePage.js": "/react-suspense-hooks-todo-app/static/js/TodoCreatePage.0eb1eeb6.chunk.js",
-    "TodoCreatePage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoCreatePage.0eb1eeb6.chunk.js.map",
-    "TodoDetailsPage.js": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.14d62b22.chunk.js",
-    "TodoDetailsPage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.14d62b22.chunk.js.map",
-    "TodoListPage.js": "/react-suspense-hooks-todo-app/static/js/TodoListPage.5ca2a048.chunk.js",
-    "TodoListPage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoListPage.5ca2a048.chunk.js.map",
-    "TodoUpdatePage.js": "/react-suspense-hooks-todo-app/static/js/TodoUpdatePage.8bed61e6.chunk.js",
-    "TodoUpdatePage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoUpdatePage.8bed61e6.chunk.js.map",
+    "TodoCreatePage.js": "/react-suspense-hooks-todo-app/static/js/TodoCreatePage.b78082bf.chunk.js",
+    "TodoCreatePage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoCreatePage.b78082bf.chunk.js.map",
+    "TodoDetailsPage.js": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.ddf8b9b2.chunk.js",
+    "TodoDetailsPage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoDetailsPage.ddf8b9b2.chunk.js.map",
+    "TodoListPage.js": "/react-suspense-hooks-todo-app/static/js/TodoListPage.983b8c22.chunk.js",
+    "TodoListPage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoListPage.983b8c22.chunk.js.map",
+    "TodoUpdatePage.js": "/react-suspense-hooks-todo-app/static/js/TodoUpdatePage.302f8dbc.chunk.js",
+    "TodoUpdatePage.js.map": "/react-suspense-hooks-todo-app/static/js/TodoUpdatePage.302f8dbc.chunk.js.map",
     "main.css": "/react-suspense-hooks-todo-app/static/css/main.e0192906.chunk.css",
-    "main.js": "/react-suspense-hooks-todo-app/static/js/main.36113925.chunk.js",
-    "main.js.map": "/react-suspense-hooks-todo-app/static/js/main.36113925.chunk.js.map",
-    "runtime~main.js": "/react-suspense-hooks-todo-app/static/js/runtime~main.ab3e1e0d.js",
-    "runtime~main.js.map": "/react-suspense-hooks-todo-app/static/js/runtime~main.ab3e1e0d.js.map",
-    "static/css/6.9720967d.chunk.css": "/react-suspense-hooks-todo-app/static/css/6.9720967d.chunk.css",
-    "static/js/6.6ab10145.chunk.js": "/react-suspense-hooks-todo-app/static/js/6.6ab10145.chunk.js",
-    "static/js/6.6ab10145.chunk.js.map": "/react-suspense-hooks-todo-app/static/js/6.6ab10145.chunk.js.map",
+    "main.js": "/react-suspense-hooks-todo-app/static/js/main.750a1497.chunk.js",
+    "main.js.map": "/react-suspense-hooks-todo-app/static/js/main.750a1497.chunk.js.map",
+    "runtime-main.js": "/react-suspense-hooks-todo-app/static/js/runtime-main.29cc5a7e.js",
+    "runtime-main.js.map": "/react-suspense-hooks-todo-app/static/js/runtime-main.29cc5a7e.js.map",
+    "static/css/6.eae286e1.chunk.css": "/react-suspense-hooks-todo-app/static/css/6.eae286e1.chunk.css",
+    "static/js/6.effa1f1b.chunk.js": "/react-suspense-hooks-todo-app/static/js/6.effa1f1b.chunk.js",
+    "static/js/6.effa1f1b.chunk.js.map": "/react-suspense-hooks-todo-app/static/js/6.effa1f1b.chunk.js.map",
     "index.html": "/react-suspense-hooks-todo-app/index.html",
-    "precache-manifest.8fe841b246b05a7cc16134681ed2b8d5.js": "/react-suspense-hooks-todo-app/precache-manifest.8fe841b246b05a7cc16134681ed2b8d5.js",
+    "precache-manifest.72c0bf9bcfaf89fda1dd097bd1e3e3e9.js": "/react-suspense-hooks-todo-app/precache-manifest.72c0bf9bcfaf89fda1dd097bd1e3e3e9.js",
     "service-worker.js": "/react-suspense-hooks-todo-app/service-worker.js",
-    "static/css/6.9720967d.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/6.9720967d.chunk.css.map",
-    "static/css/main.e0192906.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/main.e0192906.chunk.css.map"
-  }
+    "static/css/6.eae286e1.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/6.eae286e1.chunk.css.map",
+    "static/css/main.e0192906.chunk.css.map": "/react-suspense-hooks-todo-app/static/css/main.e0192906.chunk.css.map",
+    "static/js/6.effa1f1b.chunk.js.LICENSE": "/react-suspense-hooks-todo-app/static/js/6.effa1f1b.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29cc5a7e.js",
+    "static/css/6.eae286e1.chunk.css",
+    "static/js/6.effa1f1b.chunk.js",
+    "static/css/main.e0192906.chunk.css",
+    "static/js/main.750a1497.chunk.js"
+  ]
 }
