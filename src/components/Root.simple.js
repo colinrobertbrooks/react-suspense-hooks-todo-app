@@ -1,8 +1,15 @@
 import { Router } from '@reach/router';
-import React, { Suspense, createContext } from 'react';
-import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import React, { Suspense, createContext, useState } from 'react';
+import {
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  ListGroupItem,
+  Button
+} from 'reactstrap';
 import { makeTo } from '../utils/router';
-import resources from '../resources';
+import { createTodosResource } from '../resources';
 import IsLoading from './IsLoading';
 
 const TodoListGroup = ({ resource }) => {
@@ -17,16 +24,26 @@ const TodoListGroup = ({ resource }) => {
   );
 };
 
-const TodoListPage = () => (
-  <Row>
-    <Col xs={12} className="text-center">
-      <h1>Todos</h1> <hr />
-      <Suspense fallback={<IsLoading message="Loading todos..." />}>
-        <TodoListGroup resource={resources.todos.list} />
-      </Suspense>
-    </Col>
-  </Row>
-);
+const TodoListPage = () => {
+  const [todosResource, setTodosResource] = useState(() =>
+    createTodosResource()
+  );
+
+  return (
+    <Row>
+      <Col xs={12} className="text-center">
+        <h1>Todos</h1> <hr />
+        <Suspense fallback={<IsLoading message="Loading todos..." />}>
+          <TodoListGroup resource={todosResource.list} />
+        </Suspense>
+        <hr />
+        <Button onClick={() => setTodosResource(createTodosResource)}>
+          Update
+        </Button>
+      </Col>
+    </Row>
+  );
+};
 
 const App = () => (
   <Container>
