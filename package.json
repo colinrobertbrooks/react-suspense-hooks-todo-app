@@ -12,7 +12,7 @@
     "@reach/router": "^1.2.1",
     "bootstrap": "^4.3.1",
     "node-uuid": "^1.4.8",
-    "react": "0.0.0-experimental-b53ea6ca0",
+    "react": "0.14.0",
     "react-dom": "0.0.0-experimental-b53ea6ca0",
     "react-modal": "^3.8.1",
     "react-scripts": "^3.3.0",
