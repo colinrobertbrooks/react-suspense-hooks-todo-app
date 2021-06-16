@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-import { v4 } from 'node-uuid';
+import { v4 } from 'uuid';
 import { getDate } from '../utils/date';
 import { getTodosData, setTodosData } from './data';
 import {
   getUserFromLocalStorage,
   apiDelayPerConfig,
-  apiErrorPerConfig
+  apiErrorPerConfig,
 } from './utils';
 
 const listTodos = async () => {
@@ -16,7 +16,7 @@ const listTodos = async () => {
   return getTodosData();
 };
 
-const createTodo = async values => {
+const createTodo = async (values) => {
   console.log(`📞 api.todos.create called:`);
   await apiDelayPerConfig();
   apiErrorPerConfig();
@@ -29,7 +29,7 @@ const createTodo = async values => {
     createdAt: date,
     createdBy: user,
     updatedAt: date,
-    updatedBy: user
+    updatedBy: user,
   };
 
   setTodosData([...getTodosData(), newTodo]);
@@ -41,7 +41,7 @@ const updateTodo = async (id, values) => {
   apiErrorPerConfig();
 
   setTodosData(
-    getTodosData().map(todo => {
+    getTodosData().map((todo) => {
       if (todo.id !== id) {
         return todo;
       }
@@ -49,18 +49,18 @@ const updateTodo = async (id, values) => {
         ...todo,
         ...values,
         updatedAt: getDate(),
-        updatedBy: getUserFromLocalStorage()
+        updatedBy: getUserFromLocalStorage(),
       };
     })
   );
 };
 
-const deleteTodo = async id => {
+const deleteTodo = async (id) => {
   console.log(`📞 api.todos.delete called:`);
   await apiDelayPerConfig();
   apiErrorPerConfig();
 
-  const idxToDelete = getTodosData().findIndex(todo => todo.id === id);
+  const idxToDelete = getTodosData().findIndex((todo) => todo.id === id);
 
   setTodosData(getTodosData().filter((todo, idx) => idx !== idxToDelete));
 };
@@ -70,8 +70,8 @@ const api = {
     list: listTodos,
     create: createTodo,
     update: updateTodo,
-    delete: deleteTodo
-  }
+    delete: deleteTodo,
+  },
 };
 
 export default api;

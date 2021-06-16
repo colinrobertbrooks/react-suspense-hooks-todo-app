@@ -1,4 +1,4 @@
-import { v4 } from 'node-uuid';
+import { v4 } from 'uuid';
 import { USE_LOCAL_STORAGE_FOR_TODOS } from '../config';
 import { getTodosFromLocalStorage, setTodosToLocalStorage } from './utils';
 
@@ -10,7 +10,7 @@ const defaultTodosData = [
     createdAt: 1541163993401,
     createdBy: 'colinrcummings',
     updatedAt: 1541163996938,
-    updatedBy: 'colinrcummings'
+    updatedBy: 'colinrcummings',
   },
   {
     id: v4(),
@@ -19,7 +19,7 @@ const defaultTodosData = [
     createdAt: 1541163995178,
     createdBy: 'colinrcummings',
     updatedAt: 1541163996938,
-    updatedBy: 'colinrcummings'
+    updatedBy: 'colinrcummings',
   },
   {
     id: v4(),
@@ -28,8 +28,8 @@ const defaultTodosData = [
     createdAt: 1541163996071,
     createdBy: 'colinrcummings',
     updatedAt: 1541163996071,
-    updatedBy: 'colinrcummings'
-  }
+    updatedBy: 'colinrcummings',
+  },
 ];
 
 let todosData = (() => {
@@ -49,7 +49,7 @@ let todosData = (() => {
 
 export const getTodosData = () => todosData;
 
-export const setTodosData = nextTodosData => {
+export const setTodosData = (nextTodosData) => {
   todosData = nextTodosData;
   if (USE_LOCAL_STORAGE_FOR_TODOS) setTodosToLocalStorage(nextTodosData);
 };
