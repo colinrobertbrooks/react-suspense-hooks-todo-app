@@ -1,8 +1,7 @@
-import { Router } from '@reach/router';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // https://github.com/ReactTraining/react-router/issues/7870
 import React, { Suspense, useContext } from 'react';
 import { Container } from 'reactstrap';
 import UserContext from '../contexts/UserContext';
-import { makeTo } from '../utils/router';
 import Footer from './Footer';
 import IsLoading from './IsLoading';
 import UserModal from './UserModal';
@@ -27,10 +26,12 @@ const App = () => {
     <Suspense fallback={<IsLoading />}>
       <Container>
         <Router>
-          <TodoListPage path={makeTo('/')} />
-          <TodoDetailsPage path={makeTo('/details/:id')} />
-          <TodoCreatePage path={makeTo('/create')} />
-          <TodoUpdatePage path={makeTo('/update/:id')} />
+          <Routes>
+            <Route path="/" element={<TodoListPage />} />
+            <Route path="/details/:id" element={<TodoDetailsPage />} />
+            <Route path="/create" element={<TodoCreatePage />} />
+            <Route path="/update/:id" element={<TodoUpdatePage />} />
+          </Routes>
         </Router>
       </Container>
       <Footer user={user} clearUser={() => updateUser(null)} />

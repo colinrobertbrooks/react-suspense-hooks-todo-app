@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
-import { makeTo } from '../utils/router';
 
 const TodoNotFound = ({ id }) => (
   <Row className="text-center">
@@ -17,7 +16,7 @@ const TodoNotFound = ({ id }) => (
       </p>
     </Col>
     <Col xs={12}>
-      <Link to={makeTo('/')}>All Todos</Link>
+      <Link to="/">All Todos</Link>
     </Col>
   </Row>
 );

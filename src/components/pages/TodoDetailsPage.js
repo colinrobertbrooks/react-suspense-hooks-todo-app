@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import TodoContext from '../../contexts/TodoContext';
 import IsLoading from '../IsLoading';
@@ -7,22 +7,21 @@ import TodoNotFound from '../TodoNotFound';
 import TodoCompletedBadge from '../TodoCompletedBadge';
 import TodoDetailsTable from '../TodoDetailsTable';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import { makeTo } from '../../utils/router';
 
-const TodoDetailsPage = ({ id }) => {
+const TodoDetailsPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const { isLoading, getTodoById, deleteTodo } = useContext(TodoContext);
   const todo = getTodoById(id);
   useDocumentTitle(todo ? `Details for "${todo.text}"` : 'Todo Not Found');
 
   const handleDelete = async () => {
     await deleteTodo(id)
-      .then(() => navigate(makeTo('/')))
+      .then(() => navigate('/'))
       .catch(({ message }) => alert(`Error deleting todo: ${message}`));
   };
 
-  if (!isLoading && !todo) {
-    return <TodoNotFound id={id} />;
-  }
+  if (!isLoading && !todo) return <TodoNotFound id={id} />;
 
   if (isLoading) {
     return (
@@ -42,7 +41,7 @@ const TodoDetailsPage = ({ id }) => {
         <h1>
           {text} <TodoCompletedBadge completed={completed} />
         </h1>
-        <Link to={makeTo(`/update/${id}`)}>Update</Link>
+        <Link to={`/update/${id}`}>Update</Link>
         <span className="text-muted"> | </span>
         <button
           type="button"
@@ -55,7 +54,7 @@ const TodoDetailsPage = ({ id }) => {
       </Col>
       <Col xs={12} className="text-center">
         <TodoDetailsTable todo={todo} />
-        <Link to={makeTo('/')}>All Todos</Link>
+        <Link to="/">All Todos</Link>
       </Col>
     </Row>
   );

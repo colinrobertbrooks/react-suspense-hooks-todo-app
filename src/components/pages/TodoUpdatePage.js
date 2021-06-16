@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import TodoContext from '../../contexts/TodoContext';
 import IsLoading from '../IsLoading';
@@ -6,14 +7,13 @@ import TodoNotFound from '../TodoNotFound';
 import TodoForm from '../TodoForm';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-const UpdateTodoPage = ({ id }) => {
+const UpdateTodoPage = () => {
+  const { id } = useParams();
   const { isLoading, getTodoById, updateTodo } = useContext(TodoContext);
   const todo = getTodoById(id);
   useDocumentTitle(todo ? `Update "${todo.text}"` : 'Todo Not Found');
 
-  if (!isLoading && !todo) {
-    return <TodoNotFound id={id} />;
-  }
+  if (!isLoading && !todo) return <TodoNotFound id={id} />;
 
   return (
     <Row>
@@ -23,9 +23,7 @@ const UpdateTodoPage = ({ id }) => {
       </Col>
       <Col xs={12}>
         {(() => {
-          if (isLoading) {
-            return <IsLoading />;
-          }
+          if (isLoading) return <IsLoading />;
 
           const { text, completed } = todo;
 

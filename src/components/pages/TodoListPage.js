@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import TodoContext from '../../contexts/TodoContext';
 import IsLoading from '../IsLoading';
 import HasError from '../HasError';
 import TodoListGroup from '../TodoListGroup';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-
-import { makeTo } from '../../utils/router';
 
 const TodoListPage = () => {
   useDocumentTitle('All Todos');
@@ -17,14 +15,12 @@ const TodoListPage = () => {
     <Row>
       <Col xs={12} className="text-center">
         <h1>All Todos</h1>
-        <Link to={makeTo('/create')}>Create</Link>
+        <Link to="/create">Create</Link>
         <hr />
       </Col>
       <Col xs={12}>
         {(() => {
-          if (isLoading) {
-            return <IsLoading message="Loading todos..." />;
-          }
+          if (isLoading) return <IsLoading message="Loading todos..." />;
 
           if (error) {
             return (

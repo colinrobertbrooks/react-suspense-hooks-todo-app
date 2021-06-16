@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { makeTo } from '../utils/router';
 
 const TodoForm = ({
   id = null,
   initialText = '',
   initialCompleted = false,
-  onSubmit
+  onSubmit,
 }) => {
+  const navigate = useNavigate();
   const [text, setText] = useState(initialText);
   const [completed, setCompleted] = useState(initialCompleted);
   const [onSubmitError, setOnSubmitError] = useState(null);
@@ -22,10 +22,10 @@ const TodoForm = ({
     <div>
       {onSubmitError && <p className="text-danger">Error: {onSubmitError}</p>}
       <Form
-        onSubmit={async event => {
+        onSubmit={async (event) => {
           event.preventDefault();
           await onSubmit({ id, values: { text, completed } })
-            .then(() => navigate(makeTo('/')))
+            .then(() => navigate('/'))
             .catch(({ message }) => setOnSubmitError(message));
         }}
       >
@@ -37,7 +37,7 @@ const TodoForm = ({
             id="text"
             name="text"
             value={text}
-            onChange={event => setText(event.target.value)}
+            onChange={(event) => setText(event.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -47,7 +47,7 @@ const TodoForm = ({
             id="completed"
             name="completed"
             checked={completed}
-            onChange={event => setCompleted(event.target.checked)}
+            onChange={(event) => setCompleted(event.target.checked)}
             style={{ position: 'static', display: 'block', marginLeft: 0 }}
           />
         </FormGroup>
@@ -55,7 +55,7 @@ const TodoForm = ({
           <Button type="submit" color="primary">
             Submit
           </Button>{' '}
-          <Link to={makeTo('/')}>
+          <Link to="/">
             <Button color="secondary" outline style={{ marginLeft: 5 }}>
               Cancel
             </Button>
