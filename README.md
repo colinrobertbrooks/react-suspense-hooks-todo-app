@@ -10,6 +10,8 @@ Playing with new toys. :sunglasses:
 
 `$ npm run build`
 
+To serve it locally, remove "homepage" from `package.json`, run `npm run build`, then `npx serve -s build`.
+
 ## Deploy
 
 `$ npm run deploy`
@@ -21,6 +23,7 @@ Playing with new toys. :sunglasses:
 - [StrictMode](https://reactjs.org/docs/strict-mode.html)
 - [Suspense](https://reactjs.org/docs/code-splitting.html#suspense)
 - [Concurrent Mode](https://reactjs.org/docs/concurrent-mode-intro.html)
+- [Introducing React 18](https://github.com/reactwg/react-18/discussions/4)
 
 ## Boilerplate
 
